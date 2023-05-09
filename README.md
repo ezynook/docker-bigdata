@@ -11,6 +11,9 @@
 cd /path/to/hadoop
 git clone https://github.com/ezynook/docker-bigdata.git
 cd docker-bigdata
+mkdir namenode
+mkdir datanode
+mkdir tmp
 docker-compose up -d
 ```
 ### Basic Command
