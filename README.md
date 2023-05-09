@@ -1,4 +1,4 @@
-<img src="https://hadoop.apache.org/hadoop-logo.jpg" width="100">
+<img src="https://hadoop.apache.org/hadoop-logo.jpg" width="200">
 
 # Big Data Single Instance
 <i>Hadoop | Hive | Prestodb</i>
