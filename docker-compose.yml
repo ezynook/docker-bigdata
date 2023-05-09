@@ -3,7 +3,7 @@ version: "3"
 services:
 
   namenode:
-    image: ${NAMENODE}
+    image: ghcr.io/ezynook/ezynook.github.io/app:namenode
     container_name: namenode
     volumes:
       - ./namenode:/hadoop/dfs/name
@@ -15,7 +15,7 @@ services:
       - "50070:50070"
 
   datanode:
-    image: ${DATANODE}
+    image: ghcr.io/ezynook/ezynook.github.io/app:datanode
     container_name: datanode
     volumes:
       - ./datanode:/hadoop/dfs/data
@@ -27,7 +27,7 @@ services:
       - "50075:50075"
 
   hive-server:
-    image: ${HIVE}
+    image: ghcr.io/ezynook/ezynook.github.io/app:hive-server
     container_name: hive
     env_file:
       - ./hadoop-hive.env
@@ -37,7 +37,7 @@ services:
     ports:
       - "10000:10000"
   hive-metastore:
-    image: ${METASTORE}
+    image: ghcr.io/ezynook/ezynook.github.io/app:hive-metastore
     container_name: hive2
     env_file:
       - ./hadoop-hive.env
@@ -47,10 +47,10 @@ services:
     ports:
       - "9083:9083"
   hive-metastore-postgresql:
-    image: ${POSTGRES}
+    image: ghcr.io/ezynook/ezynook.github.io/app:postgres-metastore
     container_name: postgresql
   presto-coordinator:
-    image: ${PRESTODB}
+    image: ghcr.io/ezynook/ezynook.github.io/app:prestodb
     container_name: prestodb
     ports:
       - "8080:8080"
