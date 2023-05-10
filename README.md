@@ -1,4 +1,6 @@
-<img src="https://hadoop.apache.org/hadoop-logo.jpg" width="200">
+<div align="center">
+    <img src="https://hadoop.apache.org/hadoop-logo.jpg" width="200">
+</div>
 
 # Big Data Single Instance
 <i>Hadoop | Hive | Prestodb</i>
@@ -8,18 +10,19 @@
 ### วิธีการเรียกใช้งาน
 
 ```bash
-cd /path/to/hadoop
-git clone https://github.com/ezynook/docker-bigdata.git
-cd docker-bigdata
-mkdir namenode
-mkdir datanode
-mkdir tmp
-docker-compose up -d
+$ cd /path/to/hadoop
+$ git clone https://github.com/ezynook/docker-bigdata.git
+$ cd docker-bigdata
+$ mkdir namenode
+$ mkdir datanode
+$ mkdir tmp
+$ docker-compose up -d
 ```
 ### Basic Command
 ```bash
-docker exec -it hive /bin/bash
+$ docker exec -it hive /bin/bash
 $ hive
+#Command
 {show databases, show tables}
 ```
 ### Create Database
@@ -77,28 +80,28 @@ LOCATION
 ```
 ### Access to hive
 ```bash
-docker exec -it hive /bin/bash -c "hive"
+$ docker exec -it hive /bin/bash -c "hive"
 ```
 ### Access HDFS Store
 ```bash
-docker exec -it hive /bin/bash -c "hdfs dfs -ls /user/hive/warehouse/table_name"
+$ docker exec -it hive /bin/bash -c "hdfs dfs -ls /user/hive/warehouse/table_name"
 ```
 ### Csv file to HDFS
 นำไฟล์ CSV ที่ได้ทำการ ETL หรือ Cleaned แล้ว นำไฟล์มาวางไว้ที่ /tmp (CSV Seperate ต้องเป็น PIPE "|" เท่านั้น) และถ้าหากมีหลายไฟล์ชื่อต้องห้ามซ้ำกัน จากนั้นทำการ Add to HDFS Store โดยใช้คำสั่ง
 ```bash
-docker exec -it hive bash
-hdfs dfs -put /tmp/csv_file_name.csv /user/hive/warehouse/testdb/testtbl/
+$ docker exec -it hive bash
+$ hdfs dfs -put /tmp/csv_file_name.csv /user/hive/warehouse/testdb/testtbl/
 ```
 จากนั้นลอง List ดูว่ามีไฟล์อยู่จริงๆหรือไม่
 ```bash
-hdfs dfs -ls /user/hive/warehouse/testdb/testtbl/
+$ hdfs dfs -ls /user/hive/warehouse/testdb/testtbl/
 ```
 ลอง Query โดยใช้ Hive ว่ามีข้อมูล rows หรือไม่
 ```bash
-docker exec -it hive bash
+$ docker exec -it hive bash
 $ hive
 $ use testdb;
-$ select * from testdb.testtbl limit 10;
+sql > select * from testdb.testtbl limit 10;
 ```
 จากนั้นดูว่ามีข้อมูลตามที่เราได้ทำ CSV ไว้หรือไม่ หรือจะใช้ Third-Party Software ได้จากลิ้งนี้ [Download DBeaver](https://dbeaver.io/download/)
 
