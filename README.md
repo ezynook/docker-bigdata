@@ -2,12 +2,12 @@
     <img src="https://hadoop.apache.org/hadoop-logo.jpg" width="200">
 </div>
 
-# Big Data Single Instance
+# 🟢 Big Data Single Instance
 <i>Hadoop | Hive | Prestodb</i>
 
 ---
 
-### วิธีการเรียกใช้งาน
+### 👉 วิธีการเรียกใช้งาน
 
 ```bash
 $ cd /path/to/hadoop
@@ -18,14 +18,14 @@ $ mkdir datanode
 $ mkdir tmp
 $ docker-compose up -d
 ```
-### Basic Command
+### 🟢 Basic Command
 ```bash
 $ docker exec -it hive /bin/bash
 $ hive
 #Command
 {show databases, show tables}
 ```
-### Create Database
+### 🟢 Create Database
 ```sql
 CREATE DATABASE
     `testdb`
@@ -34,7 +34,7 @@ COMMENT
 LOCATION
     '/user/hive/warehouse/testdb'
 ```
-### Create Table
+### 🟢 Create Table
 CSV Type
 ```sql
 CREATE TABLE `testdb.testtbl`(                      
@@ -78,15 +78,15 @@ STORED AS PARQUET
 LOCATION                                           
     '/user/hive/warehouse/testdb/testtbl'
 ```
-### Access to hive
+### 🟢 Access to hive
 ```bash
 $ docker exec -it hive /bin/bash -c "hive"
 ```
-### Access HDFS Store
+### 🟢 Access HDFS Store
 ```bash
 $ docker exec -it hive /bin/bash -c "hdfs dfs -ls /user/hive/warehouse/table_name"
 ```
-### Csv file to HDFS
+### 🟢 Csv file to HDFS
 นำไฟล์ CSV ที่ได้ทำการ ETL หรือ Cleaned แล้ว นำไฟล์มาวางไว้ที่ /tmp (CSV Seperate ต้องเป็น PIPE "|" เท่านั้น) และถ้าหากมีหลายไฟล์ชื่อต้องห้ามซ้ำกัน จากนั้นทำการ Add to HDFS Store โดยใช้คำสั่ง
 ```bash
 $ docker exec -it hive bash
